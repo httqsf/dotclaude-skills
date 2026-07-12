@@ -2,9 +2,12 @@
 
 [Claude Code](https://claude.com/claude-code) 用の Agent Skills 集。会社PC・自宅PCなど複数マシンで同じスキルを使えるように公開しています。
 
-現在は **ミノ駆動（仙塲大也）さんの設計思想をリスペクトした設計スキル群** を収録しています。
+現在は、以下の知識スキル群を収録しています。
 
-> ⚠️ これらのスキルは、ミノ駆動さんが公開している登壇資料・記事（Speaker Deck / Qiita / 各種インタビュー）を元に、設計思想を学習・実践するために非公式にまとめたものです。内容の正確性は原典（各スキル `reference/*.md` の「出典」）を参照してください。ミノ駆動さん本人および所属組織とは関係ありません。
+- **ミノ駆動（仙塲大也）さん**の設計思想をリスペクトした設計スキル群
+- **t-wada（和田卓人）さん**が広めてきたTDD・自動テストの知見をリスペクトしたテストスキル群
+
+> ⚠️ これらのスキルは、各氏が公開している書籍・登壇資料・記事・インタビューなどを元に、思想や実践を学ぶため非公式にまとめたものです。内容の正確性は原典（各スキル `reference/*.md` の「出典」）を参照してください。各氏本人および所属組織とは関係ありません。
 
 ## 収録スキル
 
@@ -29,12 +32,18 @@ skills/
 │   ├── debt-prioritization
 │   ├── legacy-purpose-split
 │   └── ai-assisted-refactoring
-└── mino-organization       # 組織への設計文化展開
-    ├── design-learning-workshop
-    └── design-knowledge-scaling
+├── mino-organization       # 組織への設計文化展開
+│   ├── design-learning-workshop
+│   └── design-knowledge-scaling
+├── t-wada-tdd-core         # Red-Green-Refactor / Canon TDD / 実装戦略
+├── t-wada-test-craft       # テストコードの構造・ダブル・テスト容易性
+├── t-wada-test-strategy    # テストサイズ・ピラミッド・カバレッジ
+├── t-wada-test-reliability # flaky/fragile test・分離・決定性
+├── t-wada-quality-mindset  # 品質と速度・レガシーコード・契約
+└── t-wada-culture          # テスト文化・学習・AI時代のTDD
 ```
 
-各スキルは `SKILL.md`（司令塔）＋ サブトピックごとの `reference/*.md`（詳細・コード例・出典）で構成。全体を「**目的 → 課題 → 手段**」の連鎖で貫いています。
+各スキルは `SKILL.md`（司令塔）＋ サブトピックごとの `reference/*.md`（詳細・コード例・出典）で構成しています。
 
 ## インストール
 
@@ -68,7 +77,7 @@ New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
 Copy-Item -Recurse -Force dotclaude-skills\skills\* "$HOME\.claude\skills\"
 ```
 
-配置後、Claude Code を再起動すると `mino-*` スキルが認識されます。`/` でスキル一覧に表示されれば成功です。
+配置後、Claude Code を再起動すると `mino-*` と `t-wada-*` のスキルが認識されます。`/` でスキル一覧に表示されれば成功です。
 
 ## 使い方
 
@@ -77,9 +86,14 @@ Copy-Item -Recurse -Force dotclaude-skills\skills\* "$HOME\.claude\skills\"
 - 「このドメインをモデリングしたい」→ `mino-domain-design`
 - 「技術的負債、どこから返す？」→ `mino-refactoring`
 - 「設計勉強会を企画したい」→ `mino-organization`
+- 「TDDでこの機能を実装して」→ `t-wada-tdd-core`
+- 「このテスト、モックしすぎていない？」→ `t-wada-test-craft`
+- 「テスト戦略とカバレッジ目標を考えたい」→ `t-wada-test-strategy`
+- 「flaky testを直したい」→ `t-wada-test-reliability`
+- 「テスト文化をチームに根付かせたい」→ `t-wada-culture`
 
-いずれも `mino-design-core`（目的思考）を前提に連携します。
+同じプレフィックスのスキル群は、相談内容に応じて相互に連携します。
 
 ## ライセンス
 
-スキルの記述・構成は [MIT License](./LICENSE)。ただし元となった設計思想・具体例の著作権はミノ駆動さんに帰属します。学習目的でご利用ください。
+スキルの記述・構成は [MIT License](./LICENSE)。ただし元となった思想・具体例の著作権は各原著作者に帰属します。学習目的でご利用ください。
