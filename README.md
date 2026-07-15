@@ -6,6 +6,7 @@
 
 - **ミノ駆動（仙塲大也）さん**の設計思想をリスペクトした設計スキル群
 - **t-wada（和田卓人）さん**が広めてきたTDD・自動テストの知見をリスペクトしたテストスキル群
+- **Vlad Khononov『ソフトウェア設計の結合バランス』**の Balanced Coupling モデルをリスペクトした結合設計スキル群
 
 > ⚠️ これらのスキルは、各氏が公開している書籍・登壇資料・記事・インタビューなどを元に、思想や実践を学ぶため非公式にまとめたものです。内容の正確性は原典（各スキル `reference/*.md` の「出典」）を参照してください。各氏本人および所属組織とは関係ありません。
 
@@ -40,7 +41,13 @@ skills/
 ├── t-wada-test-strategy    # テストサイズ・ピラミッド・カバレッジ
 ├── t-wada-test-reliability # flaky/fragile test・分離・決定性
 ├── t-wada-quality-mindset  # 品質と速度・レガシーコード・契約
-└── t-wada-culture          # テスト文化・学習・AI時代のTDD
+├── t-wada-culture          # テスト文化・学習・AI時代のTDD
+├── balanced-coupling-core       # 結合の根幹：知識共有 / 3軸 / BALANCE式
+├── balanced-coupling-strength   # 統合強度：侵入/機能/モデル/コントラクト結合
+├── balanced-coupling-distance   # 距離：変更の社会技術的コスト・分散モノリス
+├── balanced-coupling-volatility # 変動性：変更確率・サブドメイン分類
+├── balanced-coupling-review     # 結合レビュー：3軸マッピング→不均衡検出
+└── balanced-coupling-rebalance  # 再均衡化：どの軸を動かして是正するか
 ```
 
 各スキルは `SKILL.md`（司令塔）＋ サブトピックごとの `reference/*.md`（詳細・コード例・出典）で構成しています。
@@ -77,7 +84,7 @@ New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
 Copy-Item -Recurse -Force dotclaude-skills\skills\* "$HOME\.claude\skills\"
 ```
 
-配置後、Claude Code を再起動すると `mino-*` と `t-wada-*` のスキルが認識されます。`/` でスキル一覧に表示されれば成功です。
+配置後、Claude Code を再起動すると `mino-*`・`t-wada-*`・`balanced-coupling-*` のスキルが認識されます。`/` でスキル一覧に表示されれば成功です。
 
 ## 使い方
 
@@ -91,6 +98,10 @@ Copy-Item -Recurse -Force dotclaude-skills\skills\* "$HOME\.claude\skills\"
 - 「テスト戦略とカバレッジ目標を考えたい」→ `t-wada-test-strategy`
 - 「flaky testを直したい」→ `t-wada-test-reliability`
 - 「テスト文化をチームに根付かせたい」→ `t-wada-culture`
+- 「この設計、疎結合にすべき？」→ `balanced-coupling-core`
+- 「このコードベースの結合をレビューして」→ `balanced-coupling-review`
+- 「分散モノリスになっていない？」→ `balanced-coupling-distance`
+- 「崩れた結合バランスをどう直す？」→ `balanced-coupling-rebalance`
 
 同じプレフィックスのスキル群は、相談内容に応じて相互に連携します。
 
